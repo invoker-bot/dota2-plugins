@@ -1,0 +1,100 @@
+-s2-mix-blend-mode:
+  desc: Controls blending mode for the panel. See CSS mix-blend-mode docs on web, except normal for us is with alpha blending.
+  syntax: <blend-mode>
+align:
+  desc: None Description
+horizontal-align:
+  desc: None Description
+background-blur:
+  desc: Sets the amount of blur to apply to the contents behind this panel during composition. Default is no blur, for now Gaussian is the only blur type and takes a horizontal standard deviation, vertical standard deviation, and number of passes. Good std deviation values are around 0-10, if 10 is still not intense enough consider more passes, but more than one pass is bad for perf. As shorthand you can specify with just one value, which will be used for the standard deviation in both directions and 1 pass will be set.
+  syntax: gaussian( <number> [ , <number> ]? [, <number> ] ?)
+blur:
+  desc: Sets the amount of blur to apply to the panel and all it's children during composition. Default is no blur, for now Gaussian is the only blur type and takes a horizontal standard deviation, vertical standard deviation, and number of passes. Good std deviation values are around 0-10, if 10 is still not intense enough consider more passes, but more than one pass is bad for perf. As shorthand you can specify with just one value, which will be used for the standard deviation in both directions and 1 pass will be set.
+  syntax: gaussian( <number> [ , <number> ]? [, <number> ] ?)
+brightness:
+  desc: Sets the brightness that applies to the panel and all it's children during composition. The value is a multiplier on the HSB brightness value.
+  syntax: <number>
+context-menu-arrow-position:
+  desc: Specifies where to point the arrow of a context menu at on this panel. The first value controls how the arrow is positioned horizontally when the context menu is to the top or bottom of the panel, and the second value controls how the arrow is positioned vertically when the context menu is to the left or right of the panel. Default is '50% 50%'.
+  syntax: <length> <length>
+context-menu-body-position: 
+  desc: Specifies where to position the body of a context menu relative to this panel. The first value controls how the body is aligned horizontally when the context menu is to the top or bottom of the panel, and the second value controls how the body is aligned vertically when the context menu is to the left or right of the panel. 0% means left/top aligned, 50% means center/middle aligned, and 100% means right/bottom aligned. Default is '0% 0%'.
+  syntax: <length> <length>
+context-menu-position:
+  desc: Specifies where to position a context menu relative to this panel. Valid options include 'left', 'top', 'right', and 'bottom'. List up to 4 positions to determine the order that positions are tried if the context menu doesn't fully fit on screen. Default is 'right left bottom top'. If less than 4 positions are specified, the context menu first tries the opposite of the specified position along the same axis before switching to the other axis.
+  syntax: " [ 'left' || 'top'|| 'right' || 'bottom' ] {1,4} "
+contrast:
+  desc: Sets the contrast that applies to the panel and all it's children during composition.
+  syntax: <number> 
+flow-children:
+  desc: Sets children's position .
+  syntax: " 'left' || 'top'|| 'right' || 'bottom' "
+hue-rotation:
+  desc: Sets the hue rotation to apply to the panel and all it's children during composition. Default of 0.0 means no adjustment, domain is in degrees.
+  syntax: <angle>
+img-shadow:
+  desc: Specifies image shadows. The shadow shape will match the image the panel can generate,and this is only meaningful for images. Syntax takes horizontal offset pixels, vertical offset pixels, blur radius pixels, strength, and then shadow color.
+  syntax: <length> <length> <length> <number> <color>
+opacity-mask:
+  desc: Applies an image as an opacity mask that stretches to the panel bounds and fades out it's content based on the alpha channel. The second float value is an optional opacity value for the mask itself, the image won't interpolate/cross-fade, but you can animate the opacity to fade the mask in/out. The -scroll-up, -scroll-down, and -scroll-up-down varients override the mask and apply only when the various vertical scroll scenarios affect the panel based on the overflow property.
+  syntax: <url> <number>?
+opacity-mask-scroll-down:
+  desc: See opacity-mask
+  syntax: <url> <number>?
+opacity-mask-scroll-up:
+  desc: See opacity-mask
+  syntax: <url> <number>?
+opacity-mask-scroll-up-down:
+  desc: See opacity-mask
+  syntax: <url> <number>?
+pre-transform-rotate2d:
+  desc: Sets 2 dimensional rotation degrees that apply to the quad for this panel prior to 3 dimensional transforms. This rotation applies without perspective and leaves the panel centered at the same spot as it started.
+  syntax: <angle>
+pre-transform-scale2d:
+  desc: Sets 2 dimensional X/Y scale factors that apply to the quad for this panel prior to 3 dimensional transforms. This scaling applies without perspective and leaves the panel centered at the same spot as it started. Default of 1.0 means no scaling, 0.5 would be half size.
+  syntax: <number> <number>
+saturation:
+  desc: Sets the amount of saturation to apply to the panel and all it's children during composition. Default of 1.0 means no adjustment, 0.0 means fully desaturated to gray scale, greater than 1.0 means over-saturation.
+  syntax: <number>
+sound:
+  desc: Specifies a sound name to play when this selector is applied.
+  syntax: <string>
+sound-out: 
+  desc: Specifies a sound name to play when this selector is removed.
+  syntax: <string>
+texture-sampling:
+  desc: Controls texture sampling mode for the panel. Set to alpha-only to use the textures alpha data across all 3 color channels.
+  syntax: " 'normal' || 'alpha-only' "
+tooltip-arrow-position:
+  desc: Specifies where to point the arrow of a tooltip at on this panel. The first value controls how the arrow is positioned horizontally when the tooltip is to the top or bottom of the panel, and the second value controls how the arrow is positioned vertically when the tooltip is to the left or right of the panel. Default is '50% 50%'.
+  syntax: <percentage> <percentage>
+tooltip-body-position:
+  desc: Specifies where to position the body of a tooltip relative to this panel. The first value controls how the body is aligned horizontally when the tooltip is to the top or bottom of the panel, and the second value controls how the body is aligned vertically when the tooltip is to the left or right of the panel. 0% means left/top aligned, 50% means center/middle aligned, and 100% means right/bottom aligned. Default is '0% 0%'.
+  syntax: <percentage> <percentage>
+tooltip-position:
+  desc: Specifies where to position a tooltip relative to this panel. Valid options include 'left', 'top', 'right', and 'bottom'. List up to 4 positions to determine the order that positions are tried if the tooltip doesn't fully fit on screen. Default is 'right left bottom top'. If less than 4 positions are specified, the tooltip first tries the opposite of the specified position along the same axis before switching to the other axis.
+  syntax: [right|left|bottom|top]
+ui-scale:
+  desc: Specifies a scale to apply to this panel's layout and all descendants. This scale happens at the layout level ratherthan the bitmap level, so things like text will increase their font size rather than just bitmap scaling. 
+  syntax: <percentage>{1,3}
+ui-scale-x:
+  desc: Specifies a scale to apply to this panel's layout and all descendants. This scale happens at the layout level ratherthan the bitmap level, so things like text will increase their font size rather than just bitmap scaling. 
+  syntax: <percentage>
+ui-scale-y:
+  desc: Specifies a scale to apply to this panel's layout and all descendants. This scale happens at the layout level ratherthan the bitmap level, so things like text will increase their font size rather than just bitmap scaling. 
+  syntax: <percentage>
+ui-scale-z:
+  desc: Specifies a scale to apply to this panel's layout and all descendants. This scale happens at the layout level ratherthan the bitmap level, so things like text will increase their font size rather than just bitmap scaling. 
+  syntax: <percentage>
+wash-color:
+  desc: Specifies a 'wash' color, which means a color that will be blended over the panel and all it's children at composition time, tinting them. The alpha value of the color determines the intensity of the tinting.
+  syntax: <color>
+x:
+  desc: Sets the x, y, z position for a panel. Must not be in a flowing layout.
+  syntax: <length-percentage>
+y:
+  desc: Sets the x, y, z position for a panel. Must not be in a flowing layout.
+  syntax: <length-percentage>
+z:
+  desc: Sets the x, y, z position for a panel. Must not be in a flowing layout.
+  syntax: <length-percentage>

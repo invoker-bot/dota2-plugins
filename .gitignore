@@ -1,0 +1,19 @@
+
+# Optimization
+
+# Module
+
+/node_modules/
+
+# Distribution
+
+/build/
+/dist/
+
+# Unit Test
+
+/coverage/
+
+# Configuration
+
+/.husky/_/

@@ -1,0 +1,21 @@
+
+# Optimization
+
+# Module
+
+/node_modules/
+
+# Distribution
+
+/src/
+
+# Unit Test
+
+/coverage/
+/test/
+
+# Configuration
+
+/.husky/
+/.vscode/
+/.github/
