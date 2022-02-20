@@ -1,7 +1,7 @@
 {
 	"name": "dota2-plugins",
 	"description": "`VS Code` CSS plugins for dota2 rpg developers.",
-	"version": "1.0.0",
+	"version": "1.1.0-alpha.0",
 	"publisher": "Invoker Bot",
 	"author": {
 		"name": "Invoker Bot",
